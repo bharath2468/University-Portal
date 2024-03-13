@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <title>My Projects</title>
+      <link rel="shortcut icon" href="static/University.png" type="x-icon">
+      <link rel="stylesheet" href="static/pro_display.css">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+      <style>
+        .head{
+                display:grid;
+                grid-template-columns:100px 1fr 150px;
+                background-color:#00d9ff;
+                height:150px;
+                width:100%;
+            }
+            .logo{
+                opacity:1;
+            }
+            .log{
+                display:grid;
+                grid-template-rows: 50px;
+            }
+      </style>
+  </head>
+  <body>
+    <div class="head">
+      <div class="logo">
+      <img src="static/University.png" width="150px" height="150px">
+      </div>
+      <div>
+        <h1 style="text-align: center; margin-top: 40px;">Welcome to University Portal</h1>
+      </div>
+      <div class="log">
+        Logged in : <strong>{{session.name}} | <a href="{{ url_for('logout') }}"> Logout</a>
+      </div>
+    </div>
+    <h1 class="proj">My Projects</h1>
+    <form action="/myprojects" method="POST">
+      <input type="submit" value="show data">
+    </form>
+    {% for row in data %}
+      <div class="preview">
+				<label for="" class="title">{{row[1]}}</label>
+				<label for="" class="university-details">{{row[8]}}</label>
+				<label for="" class="date">{{row[9]}}</label>
+				<p>{{row[5]}}</p>
+        <button type="submit" onclick="myfunction()" class="form-control btn btn-primary" value="{{row[0]}}" name="read-more">Read more</button>
+			</div>
+      {% endfor %}
+  </body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User List</title>
+</head>
+<body>
+    <h1>User List</h1>
+    <ul>
+        {% for item in data %}
+            <li>
+                <a href="/user/{{ item.id }}">{{ item.title }}</a>
+                <!-- Display details here if needed -->
+                <p>{{ item.details }}</p>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

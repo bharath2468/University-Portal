@@ -1,0 +1,139 @@
+.university{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+.name{
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    color: black;
+    padding: 5px;
+    
+}
+
+.top{
+    width: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.address{
+    font-size: 1.25rem;
+    padding: 5px;
+    width: 400px;
+}
+
+.code{
+    font-size: 1.5rem;
+    padding: 5px;
+    color: red;
+}
+
+.alignbtn{
+    display: flex;
+    flex-direction: row;
+    padding: 25px;
+    align-content: center space-around;
+}
+
+
+.mail{
+    width: 90px;
+    height: 40px;
+    border: 1px solid blue;
+    color: blue;
+    border-radius: 45px;
+    transition: all 0.2s;
+    cursor: pointer;
+    background: white;
+    font-size: .9em;
+    font-weight: 40;
+    font-family: 'Montserrat', sans-serif;
+    margin: 5px;
+    
+} 
+.mail:hover {
+    background: blue;
+    color: white;
+    font-size: 1em;
+    width: 100;
+    height: 42;
+}
+
+.preview{
+    width: auto;
+    padding: 1rem;
+    padding-left: 1.5rem;
+    box-shadow: 0 1.4rem 8rem rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    border-radius: 13px;
+    border: 1px solid rgb(165, 165, 165);
+    margin: 10px;
+}
+
+.preview:hover{
+    background-color: rgba(71, 71, 240, 0.112);
+}
+
+.date{
+    display: block;
+    color: rgb(152, 152, 152);
+    font-size: 1rem;
+    font-weight: 500px;
+    padding-top: 10px;
+}
+
+.date:hover{
+    color: black;
+    transition: .2s;
+}
+
+
+.title{
+    font-size: 2rem;
+    text-transform: uppercase;
+    color: black;
+}
+
+.title:hover{
+    font-size: 2.5rem;
+    transition: .5s;
+
+}
+
+.university-details{
+    font-size: 1rem;
+    text-transform: capitalize;
+    color: black;
+}
+
+.university-details:hover{
+    font-size: 1.5rem;
+    transition: .4s;
+
+}
+
+.read-more {
+    width: 90px;
+    height: 25px;
+    border: 1px solid black;
+    border-radius: 45px;
+    transition: all 0.2s;
+    cursor: pointer;
+    background: white;
+    font-size: .7em;
+    font-weight: 40;
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+.read-more:hover {
+    background: black;
+    color: white;
+    font-size: .8em;
+    width: 95;
+    height: 30;
+    transition: .3s;
+  }

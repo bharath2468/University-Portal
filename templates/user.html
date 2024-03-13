@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>User Account</title>
+<link rel="stylesheet" href="static/pro_display.css">
+<link rel="stylesheet" href="static/footer.css">
+<link rel="stylesheet" href="static/button-63.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">  
+<style>
+	@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+	.head{
+		display:grid;
+		grid-template-columns:100px 1fr 250px;
+		background-color:#00d9ff;
+		height:150px;
+		width:100%;
+		text-align: center;
+	}
+	.logo{
+		opacity:1;
+	}
+	.login{
+		display:grid;
+		grid-template-rows: 75px 75px;
+	}
+	.filter{
+    	border-right:1px solid rgb(199, 199, 199);
+    	height: 100%;
+		float: left;
+		padding-right: 30px;
+	}
+	.about{
+		color: #ffffff;
+		margin-left:15px;
+		display:inline-block;
+		margin-top: 20px;
+	}
+	.log{
+		display:grid;
+		grid-template-rows: 50px;
+	}
+	.page{
+		display : grid;
+		grid-template-columns: 210px 200px 650px;
+		width:100%;
+		height: 55px;
+		margin-top: 10px;
+		margin-bottom: 15px;
+	}
+	.pro{
+		display: grid;
+		grid-template-columns: 200px 1fr;
+	}
+	.alert {
+            padding: 15px;
+            background-color: #797271;
+            color: white;
+            border-radius: 5px;
+            position: fixed;
+            top: 5%; /* Move it to the middle vertically */
+            left: 50%; /* Move it to the middle horizontally */
+            transform: translate(-50%, -50%); /* Center it precisely */
+            display: none; /* Initially hide the alert */
+        }
+	.button63{
+		vertical-align: center;
+	}
+	.search{
+		width: 300px;
+		margin-top: 15px;
+	}
+</style>      
+</head>
+<body>
+	<div class="head">
+		<div class="logo">
+		<img src="static/University.png" width="150px" height="150px">
+		</div>
+		<div>
+			<h1 style="text-align: center; margin-top: 40px;">Welcome to University Portal</h1>
+		</div>
+		<div class="log">
+			Logged in : <strong>{{session.name}} | <a href="{{ url_for('logout') }}"> Logout</a>
+		</div>
+	<div class="alert" id="alertMessage">This is an alert message.</div>	
+	</div>
+	<div class="page">
+		<form method="post" action="{{ url_for('user') }}">
+			<input style="margin-left: 5px;" class="button-63" type="submit" value="Create Project" name="create"/>
+		</form>
+		<form method="post" action="{{ url_for('user') }}">
+			<input class="button-63" type="submit" value="My Projects" name="project"/>
+		</form>
+		<form>
+		<div method="post" action="{{ url_for('user') }}" style="text-align: center;">
+			<input class="search" type="text" name="search" id="search" placeholder="Search">
+			<button type="submit" class="form-control btn btn-primary" style="width: 80px;">Search</button>
+		</div>
+	</form>
+	</div>
+	<hr>
+	
+	<div class="pro">
+		<div class="filter">
+			<h3>Filter</h3>
+		</div>
+		<div class="projects">
+			<form id='myForm' action="/user" method="POST">
+			<button type="submit">Show Data</button>
+			{% for row in data %}
+			<div class="preview">
+				<label for="" class="title">{{row[1]}}</label>
+				<label for="" class="university-details">{{row[8]}}</label>
+				<label for="" class="date">{{row[9]}}</label>
+				<p>{{row[5]}}</p>
+				<button type="submit" onclick="myfunction()" class="form-control btn btn-primary" value="{{row[0]}}" name="read-more">Read more</button>
+			</div>
+			{% endfor %}
+		</form>
+		</div>
+	</div>
+	
+	<footer class="footer">
+		<div class="container">
+		<div class="row">
+		<div class="footer-col">
+			<h4>Solution Makers</h4>
+			<ul>
+			<li><a href="#">about us</a></li>
+			
+			</ul>
+		</div>
+		<div class="footer-col">
+			<h4>get help</h4>
+			<ul>
+			<li><a href="#">FAQ</a></li>
+			</ul>
+		</div>
+		
+		<div class="footer-col">
+			<h4>follow us</h4>
+			<div class="social-links">
+			<a href="#"><i class="fab fa-facebook-f"></i></a>
+			<a href="#"><i class="fab fa-twitter"></i></a>
+			<a href="#"><i class="fab fa-instagram"></i></a>
+			<a href="#"><i class="fab fa-linkedin-in"></i></a>
+			</div>
+		</div>
+		<div class="about">
+			<h4>Sathyabama Institute of Science and Technology</h4>
+			<p>Smart India Internal hackathon</p>
+			<P>Team Name : SOLUTION MAKERS</P>
+		</div>
+		</div>
+		</div>
+	</footer>
+	<script>
+		// Function to show the alert and hide it after a few seconds
+		function showAlert(message, duration) {
+			var alertDiv = document.getElementById('alertMessage');
+			alertDiv.innerHTML = message;
+			alertDiv.style.display = 'block'; // Show the alert
+	
+			setTimeout(function(){
+				alertDiv.style.display = 'none'; // Hide the alert after the specified duration
+			}, duration);
+		}
+		var messageFromFlask = "{{ mesage }}";
+		showAlert(messageFromFlask, 850);
+	</script>
+</body>
+</html>
