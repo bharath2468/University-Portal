@@ -127,7 +127,7 @@ def user():
             resu=id[0]
             res=str(resu)
             session['pid']=res
-            file_path="./files"+"/"+session['name']+"/"+res
+            file_path="./files"+"/"+result[0][8]+"/"+res
             app.config['file_path'] = file_path
             files = os.listdir(app.config['file_path'])
             return render_template('proview.html',data=result,files=files)
